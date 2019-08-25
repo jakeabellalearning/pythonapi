@@ -8,7 +8,7 @@ import { K12serviceService } from './shared/k12service.service';
 })
 export class AppComponent {
   title = 'K12 - eLearning';
-  serviceResult='';
+  serviceResult='x';
 
   constructor(private commonService : K12serviceService) { }
 
