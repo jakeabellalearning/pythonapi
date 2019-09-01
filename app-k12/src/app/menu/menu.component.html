@@ -1,0 +1,33 @@
+<mat-nav-list>
+
+      <span>
+            <a mat-button class="sidenav-link" [routerLink]="['/level/1']" (click)="sidenav.toggle()">
+                  <mat-icon>school</mat-icon>{{levelObj.levelDesc}}
+            </a>
+      </span>
+      <div *ngFor="let tc of levelObj.subjects">
+            <dl>
+                  <dt><a mat-button class="sidenav-link">
+                              <mat-icon>assignment</mat-icon>{{tc.subjectDesc}}
+                        </a></dt>
+                  <dd *ngFor="let p of tc.quarters">
+                        <a mat-button class="sidenav-link">
+                              <mat-icon>access_time</mat-icon>{{p.quarterDesc}}
+                        </a>
+                        <div>
+                              <dl>
+                                    <dt></dt>
+                                    <dd *ngFor="let x of p.topics">
+                                          <button mat-button
+                                                [routerLink]="['/level',levelObj.levelid,'subject',tc.subjectId,'period',p.quarterId,'topic',x.topicId]"
+                                                (click)="parentSideNav.toggle()">
+                                                <mat-icon>subject</mat-icon>{{x.topicDesc}}
+                                          </button>
+                                    </dd>
+                              </dl>
+                        </div>
+
+                  </dd>
+            </dl>
+      </div>
+</mat-nav-list>

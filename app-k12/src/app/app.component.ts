@@ -8,12 +8,12 @@ import { K12serviceService } from './shared/k12service.service';
 })
 export class AppComponent {
   title = 'K12 - eLearning';
-  serviceResult='x';
+  serviceResult:any;
 
   constructor(private commonService : K12serviceService) { }
 
   ngOnInit(){
-    this.commonService.getMenuForLoggedIn().subscribe(
+    this.commonService.getMenuForLoggedIn(1).subscribe(
       res=>this.serviceResult= res
     )
   }

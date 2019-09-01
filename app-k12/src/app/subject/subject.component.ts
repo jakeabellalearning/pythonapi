@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { SubjectObj } from '../models/subject';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-subject',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./subject.component.css']
 })
 export class SubjectComponent implements OnInit {
+  @Input() subj:SubjectObj;
+  topicId:string;
+  levelId:string;
+  subjectId:string;
+  constructor(private router:ActivatedRoute) {
 
-  constructor() { }
+   }
 
   ngOnInit() {
+    this.router.paramMap.subscribe(params=>{
+      this.levelId=params.get("lvl");
+      this.subjectId=params.get("subj");
+      this.topicId=params.get("topic_id");
+    });
+
   }
 
 }

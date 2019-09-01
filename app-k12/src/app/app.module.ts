@@ -11,12 +11,16 @@ import {MatCardModule} from '@angular/material'
 import {MatRadioModule} from '@angular/material';
 import { SubjectComponent } from './subject/subject.component';
 import { LevelComponent } from './level/level.component'
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { MenuComponent } from './menu/menu.component';
+import { SubjectmenuComponent } from './subjectmenu/subjectmenu.component'; 
 @NgModule({
   declarations: [
     AppComponent,
     SubjectComponent,
-    LevelComponent
+    LevelComponent,
+    MenuComponent,
+    SubjectmenuComponent
   ],
   imports: [
     BrowserModule,

@@ -1,40 +1,6 @@
 <mat-sidenav-container fullscreen>
   <mat-sidenav #sidenav mode="push" class="app-sidenav">
-
-    <mat-nav-list>
-      <dl> 
-        <dt> <a mat-list-item class="sidenav-link" [routerLink]="['/level/1']" (click)="sidenav.toggle()">
-         
-          <span class="title" mat-line><mat-icon>account_balances</mat-icon> Primary One</span></a>
-          <dd>
-              <a mat-list-item class="sidenav-link" [routerLink]="['/level/subject/1']" (click)="sidenav.toggle()">
-                
-                <span  mat-line><mat-icon>subject</mat-icon> Mathematics</span>
-              </a>
-              <div>
-                <dl>
-                  <dt>
-                    <dd> <a mat-list-item class="sidenav-link" [routerLink]="['/level/subject/1/quarter/1']" (click)="sidenav.toggle()">
-                      <span mat-line>First Quarter</span>
-                    </a></dd>
-                    <dd>
-                      <div>
-                          <dl>
-                              <dt>
-                                <dd>
-                                    <a mat-list-item class="sidenav-link" [routerLink]="['/level/subject/1/quarter/1']" (click)="sidenav.toggle()">
-                                      <span mat-line>Roman Numerals</span>
-                                    </a>
-                                </dd>
-                              </dl>
-                      </div>
-                            
-                    </dd>
-                </dl>
-              </div>
-          </dd>
-      </dl>
-    </mat-nav-list>
+    <app-menu [levelObj]="serviceResult" [parentSideNav]="sidenav"></app-menu>
   </mat-sidenav>
   <mat-toolbar id="appToolbar" [ngClass]="{'toolbar-fullscreen': (fullscreen$ | async)}" color="primary">
     <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button" [hidden]="sidenav.opened">
@@ -45,7 +11,7 @@
     </h1>
     <span class="toolbar-filler"></span>
     <!--<button id="button-login" mat-button [routerLink]="['/signupin']" *ngIf="!(user | async)">Log In</button>-->
-    <button id="button-logout" mat-button>{{serviceResult}}</button>
+    <button id="button-logout" mat-button>{{serviceResult.levelDesc}}</button>
   </mat-toolbar>
   <router-outlet></router-outlet>
 </mat-sidenav-container>

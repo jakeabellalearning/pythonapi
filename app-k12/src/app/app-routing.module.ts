@@ -7,8 +7,7 @@ import { LevelComponent } from './level/level.component';
 const routes: Routes = [  
   { path: '', redirectTo:'',pathMatch:'full'},
   { path: 'level/:id', component: LevelComponent },
-  { path: 'level/subject/:id', component: SubjectComponent },
-  { path: 'level/subject/:id/quarter/:qid', component: SubjectComponent },
+  { path: 'level/:lvl/subject/:subj/period/:period/topic/:topic_id', component: SubjectComponent }
 ];
 
 @NgModule({
