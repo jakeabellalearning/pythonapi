@@ -5,3 +5,25 @@
 .toolbar-filler {
     flex: 1 1 auto
 }
+body{
+    margin:2em;
+}
+.tp-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width:200;
+    background: #eee;
+ }
+ .tp-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+    width:100px;   
+ }
+.menu-sidenav{
+    width:200px
+}

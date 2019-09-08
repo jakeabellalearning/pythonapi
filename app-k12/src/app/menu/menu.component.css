@@ -1,0 +1,25 @@
+.menu-level-1 {
+    width:100%;
+    background: #eee;
+    text-align: left;
+    font-weight: bolder
+ }
+ .menu-level-2 {
+    width:100%;
+    background: #eee;
+    text-align: left;
+ }
+ .menu-level-3 {
+    width:100%;
+    background: #eee;
+    text-align: left;
+    font-style: italic;
+
+ }
+ .menu-level-4 {
+    width:100%;
+    background:white;
+    text-align: left;
+    font-style: italic;
+
+ }

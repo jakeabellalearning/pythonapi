@@ -1,5 +1,8 @@
+import { QuizObj } from './quiz';
+import { QuestionObj } from './question';
+
 export class ChoiceObj{
-    questionId:number;
+    question:QuestionObj;
     choiceId:number;
     choiceDesc:string;
 }

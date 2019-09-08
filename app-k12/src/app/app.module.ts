@@ -13,14 +13,17 @@ import { SubjectComponent } from './subject/subject.component';
 import { LevelComponent } from './level/level.component'
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './menu/menu.component';
-import { SubjectmenuComponent } from './subjectmenu/subjectmenu.component'; 
+import { SubjectmenuComponent } from './subjectmenu/subjectmenu.component';
+import { TopicpageComponent } from './topicpage/topicpage.component'; 
+
 @NgModule({
   declarations: [
     AppComponent,
     SubjectComponent,
     LevelComponent,
     MenuComponent,
-    SubjectmenuComponent
+    SubjectmenuComponent,
+    TopicpageComponent
   ],
   imports: [
     BrowserModule,
