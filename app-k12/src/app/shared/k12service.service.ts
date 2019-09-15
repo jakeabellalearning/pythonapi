@@ -34,12 +34,14 @@ export class K12serviceService {
     topicObj.topicId = 1;//(topicId) check how to  cast a string into int
     topicObj.topicDesc = "Roman Numerals";
     topicObj.quizes = new Array<QuizObj>();
+    
     var quizObj = new QuizObj();
     quizObj.quizId = 101;
     quizObj.quizDesc = "First Quiz";
     quizObj.questions = new Array<QuestionObj>();
     quizObj.questions.push(this.mockQuestionObj(quizObj,1,"what is the numeric value of the roman Numeral XII"));
-    quizObj.questions.push(this.mockQuestionObj(quizObj,1,"what is the numeric value of the roman Numeral X"));
+    quizObj.questions.push(this.mockQuestionObj(quizObj,1,"what is the numeric value of the roman Numeral V"))
+    
     topicObj.quizes.push(quizObj);
     
     return of(topicObj);
@@ -76,6 +78,18 @@ export class K12serviceService {
     question1.choices.push(q1choice1,q1choice2,q1choice3,q1choice4);
     question1.answerId = q1choice2;
    // quizObj.questions.push(question1);
+
+   var question2 = new QuestionObj();
+   question2.questionId = 2;
+   question2.questionDesc = "What is the numeric value of the  Roman Numeral V ";
+   question2.quiz = quizObj;
+   question2.answerId = q1choice4;
+   question2.choices = new Array<ChoiceObj>();
+   question2.choices.push(q1choice3);
+   question2.choices.push(q1choice2);
+   question2.choices.push(q1choice1);
+   question2.choices.push(q1choice4);
+   question2.answerId = q1choice1;
     return question1;
   }
   getMenuForLoggedIn(levelId:number) : Observable<LevelObj>{
@@ -104,11 +118,19 @@ export class K12serviceService {
     topicObj2.topicId = 2;
     topicObj2.topicDesc = ">,<,=,<>";
 
+    var quizz = new QuizObj();
+    quizz.quizId = 101;
+    quizz.quizDesc = "First Quiz";
+    
     quarterObj.topics.push(topicObj);
     quarterObj.topics.push(topicObj2);
     subjObj.quarters.push(quarterObj);
+    topicObj.quizes = new Array<QuizObj>();
+    
+    topicObj.quizes.push(quizz);
+    
     levelObj.subjects.push(subjObj);
-
+    
     return of(levelObj);
   }
 }

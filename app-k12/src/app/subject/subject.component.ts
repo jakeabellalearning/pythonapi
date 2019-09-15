@@ -12,6 +12,7 @@ export class SubjectComponent implements OnInit {
   topicId:string;
   levelId:string;
   subjectId:string;
+  
   constructor(private router:ActivatedRoute) {
 
    }

@@ -14,7 +14,8 @@ import { LevelComponent } from './level/level.component'
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './menu/menu.component';
 import { SubjectmenuComponent } from './subjectmenu/subjectmenu.component';
-import { TopicpageComponent } from './topicpage/topicpage.component'; 
+import { TopicpageComponent } from './topicpage/topicpage.component';
+import { QuizComponent } from './quiz/quiz.component'; 
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TopicpageComponent } from './topicpage/topicpage.component';
     LevelComponent,
     MenuComponent,
     SubjectmenuComponent,
-    TopicpageComponent
+    TopicpageComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,

@@ -14,12 +14,20 @@
                   </button>
             </span>
             <div *ngFor="let p of tc.quarters" ><button mat-button class="sidenav-link menu-level-3" >{{p.quarterDesc}}</button>
-                  <span *ngFor="let x of p.topics">
+                  <div *ngFor="let x of p.topics">
                               <button mat-button class="sidenav-link menu-level-4"
-                              [routerLink]="['/level',levelObj.levelid,'subject',tc.subjectId,'period',p.quarterId,'topic',x.topicId]">
+                              [routerLink]="['/level',levelObj.levelid,'subject',tc.subjectId,'period'
+                              ,p.quarterId,'topic',x.topicId]">
                               <mat-icon>subject</mat-icon>{{x.topicDesc}}
                         </button>      
-                  </span>
+                        <div *ngFor="let y of x.quizes" class="div-level-5">
+                              <button mat-button class="sidenav-link menu-level-5"
+                              [routerLink]="['/level',levelObj.levelid,'subject',tc.subjectId,'period'
+                              ,p.quarterId,'topic',x.topicId,'quiz',y.quizId]">
+                              {{y.quizDesc}}
+                              </button>
+                        </div>
+                  </div>
             </div>
       </div>
 </mat-nav-list>
