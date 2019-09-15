@@ -40,7 +40,7 @@ export class K12serviceService {
     quizObj.quizDesc = "First Quiz";
     quizObj.questions = new Array<QuestionObj>();
     quizObj.questions.push(this.mockQuestionObj(quizObj,1,"what is the numeric value of the roman Numeral XII"));
-    quizObj.questions.push(this.mockQuestionObj(quizObj,1,"what is the numeric value of the roman Numeral V"))
+    quizObj.questions.push(this.mockQuestionObj(quizObj,2,"what is the numeric value of the roman Numeral V"))
     
     topicObj.quizes.push(quizObj);
     
@@ -48,8 +48,8 @@ export class K12serviceService {
   }
   mockQuestionObj(quizObj:QuizObj,questionId:number,questionDesc:string):QuestionObj{
     var question1 = new QuestionObj();
-    question1.questionId = 1;
-    question1.questionDesc = "What is the numeric value of the  Roman Numeral XII ";
+    question1.questionId = questionId;
+    question1.questionDesc = questionDesc;
     question1.quiz = quizObj;
     question1.answerId = q1choice4;
     question1.choices = new Array<ChoiceObj>();

@@ -15,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './menu/menu.component';
 import { SubjectmenuComponent } from './subjectmenu/subjectmenu.component';
 import { TopicpageComponent } from './topicpage/topicpage.component';
-import { QuizComponent } from './quiz/quiz.component'; 
+import { QuizComponent } from './quiz/quiz.component';
+import { QuestionComponent } from './question/question.component'; 
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { QuizComponent } from './quiz/quiz.component';
     MenuComponent,
     SubjectmenuComponent,
     TopicpageComponent,
-    QuizComponent
+    QuizComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,

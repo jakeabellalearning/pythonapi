@@ -9,12 +9,12 @@ import {SubjectObj} from '../models/subject';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
-  @Input() subj:SubjectObj;
+  @Input() topic:TopicObj;
   topicId:string;
   levelId:string;
   subjectId:string;
   quarterId:string;
-  topic:TopicObj;
+  
   quizId:string;
 
   constructor(private router : ActivatedRoute,private commonService : K12serviceService ) { }
