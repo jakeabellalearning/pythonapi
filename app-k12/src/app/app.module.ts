@@ -17,6 +17,7 @@ import { SubjectmenuComponent } from './subjectmenu/subjectmenu.component';
 import { TopicpageComponent } from './topicpage/topicpage.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuestionComponent } from './question/question.component'; 
+import { NgMaterialMultilevelMenuModule } from 'ng-material-multilevel-menu';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { QuestionComponent } from './question/question.component';
     MatRadioModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-    HttpClientModule
+    HttpClientModule,
+    NgMaterialMultilevelMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

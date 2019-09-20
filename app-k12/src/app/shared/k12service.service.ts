@@ -9,7 +9,7 @@ import { TopicObj } from '../models/topic';
 import { QuizObj } from '../models/quiz';
 import { QuestionObj } from '../models/question';
 import { ChoiceObj } from '../models/choice';
-
+import { MenuModelsObj} from '../models/menumodels';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type' : 'application/json'
@@ -92,45 +92,50 @@ export class K12serviceService {
    question2.answerId = q1choice1;
     return question1;
   }
-  getMenuForLoggedIn(levelId:number) : Observable<LevelObj>{
-    var levelObj:LevelObj = new LevelObj();
-    //Level 
-    levelObj.levelid = 1;
-    levelObj.levelDesc = "Primary One";
-    levelObj.subjects = new Array<SubjectObj>();
-    //Subject
-    var subjObj:SubjectObj = new SubjectObj();
-    subjObj.subjectId = 1;
-    subjObj.subjectDesc = "Mathematics";
-    subjObj.quarters = new Array<QuarterObj>();
+  getMenuForLoggedIn(levelId:number) : Observable<MenuModelsObj>{
+    var menuObj = new MenuModelsObj();
+    menuObj.label = "Primary One";
+    menuObj.icon="card_membership";
+    menuObj.items = new Array<MenuModelsObj>();
+    menuObj.id = "1"; //level id;
+    menuObj.link = "/level/" + menuObj.id;
+    var menuObjItem1 = new MenuModelsObj();
+    menuObjItem1.label="Mathematics";
+    menuObjItem1.icon = "bar_chart";
+    menuObjItem1.id = "1"; // "SubjectID"
+    menuObjItem1.link = menuObj.link+"/subject/" + menuObjItem1.id;
+    menuObjItem1.items = new Array<MenuModelsObj>();
+    
+    var menuObjItem1_1 = new MenuModelsObj();
+    menuObjItem1_1.label="First Period";
+    menuObjItem1_1.icon="av_timer";
+    menuObjItem1_1.id = "1"; // Period ID
+    menuObjItem1_1.link = menuObjItem1.link + "/period/" + menuObjItem1_1.id;
+    menuObjItem1_1.items = new Array<MenuModelsObj>();
 
-    //Quarter Object
-    var quarterObj:QuarterObj = new QuarterObj();
-    quarterObj.quarterId = 1;
-    quarterObj.quarterDesc = "First";
-    quarterObj.topics = new Array<TopicObj>();
-    // Topic Object
-    var topicObj:TopicObj = new TopicObj();
-    topicObj.topicId = 1;
-    topicObj.topicDesc="Roman Numerals";
+    var menuObjItem1_1_1 = new MenuModelsObj();
+    menuObjItem1_1_1.label="Roman Numerals";
+    menuObjItem1_1_1.icon="vertical_split";
+    menuObjItem1_1_1.id = "1";//TOpic id
+    menuObjItem1_1_1.link = menuObjItem1_1.link +"/topic/"+menuObjItem1_1_1.id;
 
-    var topicObj2:TopicObj = new TopicObj();
-    topicObj2.topicId = 2;
-    topicObj2.topicDesc = ">,<,=,<>";
+    var menuObjItem1_1_1_1 = new MenuModelsObj();
+    menuObjItem1_1_1_1.label="Quiz 1";
+    menuObjItem1_1_1_1.id="1"; //Quiz Id
+    menuObjItem1_1_1_1.link=menuObjItem1_1_1.link+"/quiz/" + menuObjItem1_1_1_1.id;
+    menuObjItem1_1_1.items = new Array<MenuModelsObj>();
 
-    var quizz = new QuizObj();
-    quizz.quizId = 101;
-    quizz.quizDesc = "First Quiz";
-    
-    quarterObj.topics.push(topicObj);
-    quarterObj.topics.push(topicObj2);
-    subjObj.quarters.push(quarterObj);
-    topicObj.quizes = new Array<QuizObj>();
-    
-    topicObj.quizes.push(quizz);
-    
-    levelObj.subjects.push(subjObj);
-    
-    return of(levelObj);
+    var menuObjItem1_1_1_2 = new MenuModelsObj();
+    menuObjItem1_1_1_2.label="Quiz 2";
+    menuObjItem1_1_1_2.id="2"; //Quiz Id
+    menuObjItem1_1_1_2.link=menuObjItem1_1_1.link+"/quiz/" + menuObjItem1_1_1_2.id;
+    menuObjItem1_1_1.items = new Array<MenuModelsObj>();
+    menuObjItem1_1_1.items.push(menuObjItem1_1_1_2);
+    menuObjItem1_1_1.items.push(menuObjItem1_1_1_1);
+    menuObjItem1_1.items.push(menuObjItem1_1_1);
+
+    menuObjItem1.items.push(menuObjItem1_1);
+    menuObj.items.push(menuObjItem1);
+    return of(menuObj);
   }
 }

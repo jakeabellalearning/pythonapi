@@ -1,5 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { LevelObj } from '../models/level';
+import { MenuModelsObj } from '../models/menumodels';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,11 +9,16 @@ import { LevelObj } from '../models/level';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  @Input() levelObj:LevelObj;
+  @Input() menuObjs:MenuModelsObj;
   @Input() parentSideNav:any;
-  constructor() { }
-
+  constructor(public router:Router) { }
+  appitems  = new Array<MenuModelsObj>();
+ 
+  selectedItem(evt:MenuModelsObj){
+   this.router.navigate([evt.link]);
+  }
   ngOnInit() {
+    this.appitems.push(this.menuObjs);
   }
 
 }

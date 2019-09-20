@@ -1,4 +1,4 @@
-<mat-nav-list>
+<!--mat-nav-list>
       <div  style="display:block">
             <span>
                   <button mat-button class="sidenav-link menu-level-1" [routerLink]="['/level/1']" (click)="sidenav.toggle()">
@@ -30,4 +30,8 @@
                   </div>
             </div>
       </div>
+</mat-nav-list-->
+<mat-nav-list>
+      <ng-material-multilevel-menu [configuration]='config' [items]='appitems' (selectedItem)="selectedItem($event)">
+      </ng-material-multilevel-menu>
 </mat-nav-list>
