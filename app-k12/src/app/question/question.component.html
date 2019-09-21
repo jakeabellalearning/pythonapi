@@ -1,4 +1,7 @@
-<p>{{questionObj.questionDesc}}</p>
-<div *ngFor="let a of questionObj.choices" style="display:inline-block">
-    <span style="margin-left:10px">{{a.choiceDesc}}</span>
-</div>
+<p>{{ questionObj.questionId + " - " +questionObj.questionDesc}}</p>
+<mat-radio-group aria-label="Select an option">
+    <mat-radio-button *ngFor="let a of questionObj.choices" 
+    value="a.choiceId" class="radio-selection">
+        {{a.choiceDesc}}
+    </mat-radio-button>
+  </mat-radio-group>

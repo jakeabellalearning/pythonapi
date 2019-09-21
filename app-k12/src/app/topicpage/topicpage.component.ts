@@ -3,6 +3,7 @@ import { SubjectObj } from '../models/subject';
 import { ActivatedRoute } from '@angular/router';
 import {K12serviceService} from '../shared/k12service.service'
 import { TopicObj } from '../models/topic';
+import { QuizObj } from '../models/quiz';
 @Component({
   selector: 'app-topicpage',
   templateUrl: './topicpage.component.html',
@@ -15,7 +16,7 @@ export class TopicpageComponent implements OnInit {
   subjectId:string;
   quarterId:string;
   topic:TopicObj;
-
+  quizObj:QuizObj;
   constructor(private router : ActivatedRoute,private commonService : K12serviceService ) { }
 
   ngOnInit() {
@@ -26,12 +27,8 @@ export class TopicpageComponent implements OnInit {
       this.quarterId=params.get("period");
     });
     this.commonService.getQuizForTopic(this.subjectId,this.quarterId,this.topicId).subscribe(
-      res=>this.topic = res
+      res=>this.quizObj = res
     );
   }
-  fetchtopicQuiz(){
-    this.commonService.getQuizForTopic(this.subjectId,this.quarterId,this.topicId).subscribe(
-      res=>this.topic = res
-    );
-  }
+
 }

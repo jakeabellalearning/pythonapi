@@ -2,7 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { TopicObj } from '../models/topic';
 import { ActivatedRoute } from '@angular/router';
 import {K12serviceService} from '../shared/k12service.service';
-import {SubjectObj} from '../models/subject';
+import {QuizObj} from '../models/quiz';
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
@@ -14,7 +14,8 @@ export class QuizComponent implements OnInit {
   levelId:string;
   subjectId:string;
   quarterId:string;
-  
+  quizObj:QuizObj;
+
   quizId:string;
 
   constructor(private router : ActivatedRoute,private commonService : K12serviceService ) { }
@@ -28,12 +29,8 @@ export class QuizComponent implements OnInit {
       this.quizId=params.get("quiz_id");
     });
     this.commonService.getQuizForTopic(this.subjectId,this.quarterId,this.topicId).subscribe(
-      res=>this.topic = res
+      res=>this.quizObj = res
     );
   }
-  fetchtopicQuiz(){
-    this.commonService.getQuizForTopic(this.subjectId,this.quarterId,this.topicId).subscribe(
-      res=>this.topic = res
-    );
-  }
+
 }
