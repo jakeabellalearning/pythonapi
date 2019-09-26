@@ -44,6 +44,10 @@ export class K12serviceService {
     
     return of(quizObj);
   }
+  submitAnswerForQuiz(quizObj:QuizObj):Observable<string>{
+    //return this.http.post<string>("http://lxspmusgv11:9080/etrading-autotest-testcases/testcase/upd", tc, httpOptions);
+    return of("Done");
+  }
   mockQuestionObj(quizObj:QuizObj,questionId:number,questionDesc:string,choiceIdfactor :number):QuestionObj{
     var question1 = new QuestionObj();
     question1.questionId = questionId;

@@ -3,6 +3,9 @@ import { TopicObj } from '../models/topic';
 import { ActivatedRoute } from '@angular/router';
 import {K12serviceService} from '../shared/k12service.service';
 import {QuizObj} from '../models/quiz';
+import {QuizverifyComponent} from '../quizverify/quizverify.component';
+import {MatDialog} from '@angular/material';
+
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
@@ -15,10 +18,11 @@ export class QuizComponent implements OnInit {
   subjectId:string;
   quarterId:string;
   quizObj:QuizObj;
-
+  isBusy:boolean;
   quizId:string;
+  result:string;
 
-  constructor(private router : ActivatedRoute,private commonService : K12serviceService ) { }
+  constructor(private router : ActivatedRoute,private commonService : K12serviceService,public dialog: MatDialog ) { }
 
   ngOnInit() {
     this.router.paramMap.subscribe(params=>{
@@ -31,6 +35,19 @@ export class QuizComponent implements OnInit {
     this.commonService.getQuizForTopic(this.subjectId,this.quarterId,this.topicId).subscribe(
       res=>this.quizObj = res
     );
+  }
+  submitAnswers(qobj:QuizObj){
+    this.isBusy = true;
+
+      const dialogRef = this.dialog.open(QuizverifyComponent, {
+        width: '500px',
+        data: {quizObj:qobj}
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        //this.animal = result;
+      });
+      
   }
 
 }

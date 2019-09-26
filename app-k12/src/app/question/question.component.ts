@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {QuestionObj} from '../models/question';
+import { ChoiceObj } from '../models/choice';
 
 @Component({
   selector: 'app-question',
@@ -8,10 +9,12 @@ import {QuestionObj} from '../models/question';
 })
 export class QuestionComponent implements OnInit {
   @Input() questionObj:QuestionObj;
-
-  constructor() { }
-
+  selection:ChoiceObj;
+  constructor() { 
+  }
   ngOnInit() {
+    this.questionObj.answerId = new ChoiceObj();
+ 
   }
 
 }

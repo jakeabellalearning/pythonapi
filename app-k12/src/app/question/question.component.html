@@ -1,7 +1,8 @@
 <p>{{ questionObj.questionId + " - " +questionObj.questionDesc}}</p>
-<mat-radio-group aria-label="Select an option">
-    <mat-radio-button *ngFor="let a of questionObj.choices" 
-    value="a.choiceId" class="radio-selection">
+<mat-radio-group [(ngModel)]="questionObj.answerId" aria-label="Select an option">
+    <mat-radio-button  *ngFor="let a of questionObj.choices" 
+        [value]="a" class="radio-selection">
         {{a.choiceDesc}}
     </mat-radio-button>
-  </mat-radio-group>
+</mat-radio-group>
+            

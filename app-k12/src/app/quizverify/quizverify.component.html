@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>{{dataObj.quizDesc}}</h1>
+<div mat-dialog-content>
+  <p>Please review your answers before submitting!</p>
+  <!--mat-form-field-->
+    <div *ngFor="let q of dataObj.questions">
+        <div>{{q.questionDesc}}</div>
+        <div>Your answer was : {{q.answerId.choiceDesc}}</div>
+        <br>
+    </div>
+  <!--/mat-form-field-->
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="submitAnswers()" color="accent">Submit Answers</button>
+ <button mat-raised-button (click)="onNoClick()" color="warn">Change Answers</button>
+ 
+</div>
