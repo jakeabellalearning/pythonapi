@@ -8,3 +8,11 @@
     display: inline-block;
     font-size: 16px;
   }     
+  .score-box{
+    border: 1px solid #279323;
+    height: 60px;
+    background-color: #B6EFC7
+  }
+  .score-summary{
+    margin:22px
+  }

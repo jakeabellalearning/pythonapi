@@ -2,6 +2,7 @@ import { Component, OnInit,Inject} from '@angular/core';
 import { QuizObj } from '../models/quiz';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { K12serviceService } from '../shared/k12service.service';
+import { TestResult } from '../models/score';
 
 export interface DialogData {
   quizObj:QuizObj;
@@ -25,8 +26,14 @@ export class QuizverifyComponent implements OnInit {
   }
   submitAnswers(){
     this.commonService.submitAnswerForQuiz(this.dataObj).subscribe(
-      res=>alert(res)
+      res=>this.process()
     );
+  }
+  process(){
+    var res = new TestResult();
+    res.itemCount = 10;
+    res.scored = 5
+    this.dataObj.testResult = res;
   }
   onNoClick(){
     this.dialogRef.close();

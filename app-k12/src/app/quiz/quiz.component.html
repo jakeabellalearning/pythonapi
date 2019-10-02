@@ -4,15 +4,22 @@
       
     </mat-card-header>
      <mat-card-content>
+
+         <div *ngIf="quizObj.testResult" class="score-box">
+              <div class="score-summary">
+                  <span> You scored  {{quizObj.testResult.scored}} out of {{quizObj.testResult.itemCount}}</span>
+              </div>
+         </div>
         <div>
            <p>{{quizObj.quizDesc}}</p>
            <div *ngFor="let b of quizObj.questions">
             <app-question [questionObj]="b"></app-question>
            </div>
         </div>
+        
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button class="succes-button" (click)="submitAnswers(quizObj)">Submit Answers</button> &nbsp;
-      <button mat-raised-button color="warn">Restart Quiz</button>
+      <button mat-raised-button color="warn" (click)="restartQuiz(quizObj)">Restart Quiz</button>
     </mat-card-actions>
  </mat-card>

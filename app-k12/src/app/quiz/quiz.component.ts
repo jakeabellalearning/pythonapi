@@ -5,6 +5,8 @@ import {K12serviceService} from '../shared/k12service.service';
 import {QuizObj} from '../models/quiz';
 import {QuizverifyComponent} from '../quizverify/quizverify.component';
 import {MatDialog} from '@angular/material';
+import { ChoiceObj } from '../models/choice';
+import { TestResult } from '../models/score';
 
 @Component({
   selector: 'app-quiz',
@@ -21,6 +23,7 @@ export class QuizComponent implements OnInit {
   isBusy:boolean;
   quizId:string;
   result:string;
+  testResult:TestResult;
 
   constructor(private router : ActivatedRoute,private commonService : K12serviceService,public dialog: MatDialog ) { }
 
@@ -31,6 +34,7 @@ export class QuizComponent implements OnInit {
       this.topicId=params.get("topic_id");
       this.quarterId=params.get("period");
       this.quizId=params.get("quiz_id");
+    
     });
     this.commonService.getQuizForTopic(this.subjectId,this.quarterId,this.topicId).subscribe(
       res=>this.quizObj = res
@@ -49,5 +53,11 @@ export class QuizComponent implements OnInit {
       });
       
   }
-
+  restartQuiz(qobj:QuizObj){
+    qobj.questions.forEach(function(val){
+      val.answerId = new ChoiceObj();
+      
+    })
+    qobj.testResult=undefined
+  }
 }
