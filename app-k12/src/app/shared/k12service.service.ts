@@ -138,6 +138,7 @@ export class K12serviceService {
 
     menuObjItem1.items.push(menuObjItem1_1);
     menuObj.items.push(menuObjItem1);
+   alert(menuObj.label);
     return of(menuObj);
   }
 }

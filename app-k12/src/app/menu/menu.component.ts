@@ -18,6 +18,7 @@ export class MenuComponent implements OnInit {
    this.router.navigate([evt.link]);
   }
   ngOnInit() {
+    alert(this.menuObjs.label)
     this.appitems.push(this.menuObjs);
   }
 
