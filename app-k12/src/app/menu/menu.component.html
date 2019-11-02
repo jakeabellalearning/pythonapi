@@ -1,22 +1,39 @@
-<mat-nav-list>
-     <div>
-            <button  class="sidenav-link" mat-button [routerLink]="['/level',menuObjs.id]">
-                 <mat-icon>{{menuObjs.icon}}</mat-icon> {{menuObjs.label}}
-            </button>
-     </div>
-     <div *ngFor="let a of menuObjs.items">
-            <button mat-button [routerLink]="['/level',menuObjs.id,'subject',a.id]">
-                  <mat-icon>{{a.icon}}</mat-icon> {{a.label}}
-            </button>
-            <div *ngFor="let b of a.items">
-                        <button mat-button [routerLink]="['/level',menuObjs.id,'subject',a.id,'period',b.id]">
-                              <mat-icon>{{b.icon}}</mat-icon> {{b.label}}
-                        </button>
-                        <div *ngFor="let c of b.items" style="width:100%">
-                              <button mat-button [routerLink]="['/level',menuObjs.id,'subject',a.id,'period',b.id,'topic',c.id]">
-                                    <mat-icon>{{c.icon}}</mat-icon> {{c.label}}
+
+      <div *ngIf="menuObjs.items">
+            <mat-expansion-panel *ngIf="menuObjs.items?.length > 0">
+                  <mat-expansion-panel-header>
+                        <mat-panel-title>
+                              <button class="menu-level-1"  mat-button [routerLink]="['/'+menuObjs.menukey,menuObjs.id]">
+                                    <mat-icon>{{menuObjs.icon}}</mat-icon> &nbsp;{{menuObjs.label}}
                               </button>
+                        </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div *ngFor="let a of menuObjs.items" style="display:block;width:100%">
+                        <button  class="menu-level-1" mat-button [routerLink]="['/'+menuObjs.menukey,menuObjs.id,a.menukey,a.id]"  style="display:block;width:100%">
+                                    <mat-icon>{{a.icon}}</mat-icon> &nbsp;{{a.label}}
+                        </button>   
+                        <div *ngFor="let b of a.items">
+                              <button mat-button class="menu-level-2" [routerLink]="['/' + menuObjs.menukey,menuObjs.id,a.menukey,a.id,b.menukey,b.id]">
+                                          <mat-icon>{{b.icon}}</mat-icon> &nbsp;{{b.label}}
+                              </button>
+                              <div *ngFor="let c of b.items">
+                                          <button mat-button class="menu-level-3" [routerLink]="['/' + menuObjs.menukey ,menuObjs.id,a.menukey,a.id,b.menukey,b.id,c.menukey,c.id]">
+                                                &nbsp;&nbsp;&nbsp;<mat-icon>{{c.icon}}</mat-icon> &nbsp;{{c.label}}
+                                          </button>
+                                          <div *ngFor="let d of c.items" syle="width:100%">
+                                                      <button mat-button class="menu-level-4" [routerLink]="['/' + menuObjs.menukey,menuObjs.id,a.menukey,a.id,b.menukey,b.id,c.menukey,c.id,d.menukey,d.id]">
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon>{{c.icon}}</mat-icon> {{d.label}}
+                                                      </button>  
+                                          </div>
+                              </div>
                         </div>
+                        
+                  </div>
+            </mat-expansion-panel>
+
+            <div *ngIf="menuObjs.items.length <1">
+                  <button  class="sidenav-link" mat-button [routerLink]="['/level',menuObjs.id]">
+                        <mat-icon>{{menuObjs.icon}}</mat-icon> &nbsp;{{menuObjs.label}}
+                  </button>
             </div>
-     </div>
-</mat-nav-list>
+      </div>   

@@ -100,37 +100,36 @@ export class K12serviceService {
     menuObj.icon="card_membership";
     menuObj.items = new Array<MenuModelsObj>();
     menuObj.id = "1"; //level id;
-    menuObj.link = "/level/" + menuObj.id;
+    menuObj.menukey="level"
     var menuObjItem1 = new MenuModelsObj();
     menuObjItem1.label="Mathematics";
     menuObjItem1.icon = "bar_chart";
     menuObjItem1.id = "1"; // "SubjectID"
-    menuObjItem1.link = menuObj.link+"/subject/" + menuObjItem1.id;
+    menuObjItem1.menukey = "subject";
     menuObjItem1.items = new Array<MenuModelsObj>();
     
     var menuObjItem1_1 = new MenuModelsObj();
     menuObjItem1_1.label="First Period";
     menuObjItem1_1.icon="av_timer";
     menuObjItem1_1.id = "1"; // Period ID
-    menuObjItem1_1.link = menuObjItem1.link + "/period/" + menuObjItem1_1.id;
+    menuObjItem1_1.menukey ="period";
     menuObjItem1_1.items = new Array<MenuModelsObj>();
 
     var menuObjItem1_1_1 = new MenuModelsObj();
     menuObjItem1_1_1.label="Roman Numerals";
     menuObjItem1_1_1.icon="vertical_split";
     menuObjItem1_1_1.id = "1";//TOpic id
-    menuObjItem1_1_1.link = menuObjItem1_1.link +"/topic/"+menuObjItem1_1_1.id;
-
+    menuObjItem1_1_1.menukey ="topic"
     var menuObjItem1_1_1_1 = new MenuModelsObj();
     menuObjItem1_1_1_1.label="Quiz 1";
     menuObjItem1_1_1_1.id="1"; //Quiz Id
-    menuObjItem1_1_1_1.link=menuObjItem1_1_1.link+"/quiz/" + menuObjItem1_1_1_1.id;
+    menuObjItem1_1_1_1.menukey ="quiz"
     menuObjItem1_1_1.items = new Array<MenuModelsObj>();
 
     var menuObjItem1_1_1_2 = new MenuModelsObj();
     menuObjItem1_1_1_2.label="Quiz 2";
     menuObjItem1_1_1_2.id="2"; //Quiz Id
-    menuObjItem1_1_1_2.link=menuObjItem1_1_1.link+"/quiz/" + menuObjItem1_1_1_2.id;
+    menuObjItem1_1_1_2.menukey="quiz";
     menuObjItem1_1_1.items = new Array<MenuModelsObj>();
     menuObjItem1_1_1.items.push(menuObjItem1_1_1_2);
     menuObjItem1_1_1.items.push(menuObjItem1_1_1_1);

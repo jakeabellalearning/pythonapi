@@ -7,5 +7,7 @@ export class MenuModelsObj
     icon:string;
     id:string;
     link:string;
+    menukey:string;
     items:MenuModelsObj[];
+    
 }
